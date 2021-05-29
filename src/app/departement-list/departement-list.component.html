@@ -1,0 +1,54 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/05ca6b7acb.js" crossorigin="anonymous"></script>
+
+</head>
+<table class="table table-dark  table-striped table-bordered table-sm">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+  </tr>
+  </thead>
+  <tbody >
+  <tr *ngFor="let d of departementService.departements">
+    <td>{{d.id}}</td>
+    <td>{{d.nom}}</td>
+    <td><input type="button" class="btn btn-success" value="update" [routerLink]="['departement/update',d.id]"></td>
+    <td><input type="button" class="btn btn-success" value="details" (click)="filter(d.id)"></td>
+    <td><button type="button" class="close color=" aria-label="Close" style="color: red" (click)="departementService.Delete(d.id)" [routerLink]="['departement/delete',d.id]">
+      <span aria-hidden="true">&times;</span>
+    </button></td>
+  </tr>
+  </tbody>
+  <div *ngIf="show">
+    <table class="table  table-dark table-striped table-bordered table-sm" id="tb">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Age</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Email</th>
+        <th scope="col">Cin</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let e of employeService.employees">
+      <tr *ngIf="e.departement == id">
+        <td>{{e.id}}</td>
+        <td>{{e.nom}}</td>
+        <td>{{e.prenom}}</td>
+        <td>{{e.age}}</td>
+        <td>{{e.salaire}}</td>
+        <td>{{e.email}}</td>
+        <td>{{e.cin}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</table>

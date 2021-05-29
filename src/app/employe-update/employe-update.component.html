@@ -1,0 +1,25 @@
+<form [formGroup]="formEmploye" (ngSubmit)="update()">
+  <div class="container">
+    <div class="col-12">
+      <div class="form-group text-center">
+        <br><h5>Update Employe With id = {{Id}}</h5>
+      </div>
+
+      <label>Nom</label>
+      <input type="text" formControlName="nom" required class="form-control" placeholder="nom" [maxLength]="8" minlength="3">
+      <label>Prenom</label>
+      <input type="text" formControlName="prenom" required class="form-control" placeholder="prenom"[maxLength]="8" minlength="3">
+      <label>age</label>
+      <input type="number" formControlName="age"  required class="form-control" placeholder="age" min="18">
+      <label>Salaire</label>
+      <input type="number" formControlName="salaire" required class="form-control" placeholder="salaire" min="300">
+      <label>cin</label>
+      <input type="numver" formControlName="cin"  class="form-control" placeholder="cin"[maxLength]="8" minlength="8" required>
+      <label>Email</label>
+      <input type="text" formControlName="email" required class="form-control" placeholder="email" pattern=".+@gmail.com" >
+
+      <input type="submit" value="Ajouter" class="btn-primary" >
+    </div>
+  </div>
+</form>
+

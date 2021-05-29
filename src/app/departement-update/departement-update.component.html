@@ -1,0 +1,15 @@
+<form [formGroup]="formDepartement" (ngSubmit)="update()">
+  <div class="container">
+    <div class="col-12">
+      <div class="form-group text-center">
+        <br><h5>Update Departement With Id = {{Id}}</h5>
+      </div>
+
+      <label>Nom</label>
+      <input type="text" formControlName="nom" placeholder="nom">
+
+      <input type="submit" value="Ajouter" class="btn-primary" >
+    </div>
+  </div>
+</form>
+
